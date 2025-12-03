@@ -1,0 +1,35 @@
+<form
+  class="flex flex-col items-center overflow-auto h-full"
+  [formGroup]="connectorForm"
+  (submit)="saveApiTokenCookie()"
+>
+  <h1 class="divider text-xl m-0">Save Api Token to Cookie</h1>
+
+  <fieldset class="fieldset w-lg bg-base-200 border border-base-300 p-4 rounded-box">
+    <legend class="fieldset-legend text-sm">Configuration</legend>
+
+    <legend class="fieldset-label">API Authentication Token</legend>
+    <label class="input w-full" [ngClass]="connectorForm.get('apiToken')?.invalid ? 'input-error' : ''">
+      <span class="material-symbols-rounded opacity-50">lock</span>
+      <input type="password" placeholder="API Token" name="apiToken" formControlName="apiToken" />
+    </label>
+  </fieldset>
+
+  <div class="divider"></div>
+  @if (errorMsg) {
+    <lib-alert title="Error" [msg]="errorMsg" (closeEvent)="errorMsg = ''" type="error" class="w-lg mb-4"></lib-alert>
+  }
+  <button type="submit" class="btn btn-primary btn-lg w-lg" [disabled]="connectorForm.invalid || loading">
+    @if (loading) {
+      <span class="loading loading-bars loading-xl text-primary"></span>
+    } @else {
+      <span class="material-symbols-rounded">add</span>
+      Save Api Token
+    }
+  </button>
+  <span style="display: inline-block; width: 20px; height: 20px"></span>
+  <button (click)="deleteApiTokenCookie()" class="btn btn-primary btn-lg w-lg">
+    <span class="material-symbols-rounded">add</span>
+    Reset Api Token
+  </button>
+</form>
