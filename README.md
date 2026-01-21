@@ -1,16 +1,23 @@
-# EDC Data Dashboard
+# Connector UI
+
+[![license](https://img.shields.io/github/license/eclipse-edc/Connector?style=flat-square&logo=apache)](https://www.apache.org/licenses/LICENSE-2.0)
+
+---
 
 ℹ️ _This repository does not contain production-grade code and is only intended for demonstration purposes._
+
+The repository is a direct fork of the [EDC Data Dashboard](https://github.com/eclipse-edc/DataDashboard).
 
 EDC Data Dashboard is a dev frontend application for [EDC Management API](https://github.com/eclipse-edc/Connector).
 
 ## Table of content
 
 1. [Overview](#overview)
-2. [Configuration](#configuration)
-3. [Run the dashboard](#run-the-dashboard)
-4. [Create a custom dashboard (How to use the library)](#create-a-custom-dashboard-how-to-use-the-library)
-5. [Contributing](#contributing)
+2. [Versioning](#versioning)
+3. [Configuration](#configuration)
+4. [Run the dashboard](#run-the-dashboard)
+5. [Create a custom dashboard (How to use the library)](#create-a-custom-dashboard-how-to-use-the-library)
+6. [Contributing](#contributing)
 
 # Overview
 
@@ -52,6 +59,12 @@ The application is merely a wrapper to configure which parts of the library to u
 The current default application setup integrates all available library parts,
 which can be customized by modifying the specified files.
 
+# Versioning
+
+We use semantic versioning and add the Eclipse Dataspace Components (EDC) version as a label to indicate compatibility. 
+For example, version `1.0.0-edc0.14.0` means that version `1.0.0` of the connector ui is compatible with all EDCs of version `0.14.0`. 
+If possible, we provide backports of fixes that affect older EDC versions as well.
+To get the latest build of the connector ui, use the version `SNAPSHOT`.
 
 # Configuration
 ℹ️ Configuration loading is implemented in the angular wrapper application as you pass the configuration
@@ -155,10 +168,3 @@ Otherwise, a fallback is used, where the user needs to know the properties for t
 
 ## Custom themes
 DaisyUI provides a [theme generator](https://daisyui.com/theme-generator/) that allows you to easily create a theme for your custom dashboard.
-
-
-
-# Contributing
-
-See [how to contribute](https://github.com/eclipse-edc/docs/blob/main/CONTRIBUTING.md) for details.
-
