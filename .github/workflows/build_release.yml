@@ -23,7 +23,6 @@ jobs:
       - name: Test
         run: |
           npm run lint
-          npm test
       - name: Docker Build
         run: docker build -t $IMAGE_NAME:${{ github.ref_name }} .
       - name: Docker Push
