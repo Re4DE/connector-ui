@@ -73,7 +73,10 @@
                     <i class="material-symbols-rounded">info</i>
                   </button>
                 </div>
-                @if ((transferProcess.optionalValue('edc', 'transferType') || '-') === 'HttpData-PULL') {
+                @if (
+                  (transferProcess.optionalValue('edc', 'transferType') || '-') === 'HttpData-PULL' &&
+                  transferProcess.type === 'CONSUMER'
+                ) {
                   <div class="tooltip no-animation ml-4" data-tip="Download">
                     <button
                       class="btn btn-soft btn-primary btn-circle btn-sm no-animation"
