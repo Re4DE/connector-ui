@@ -73,6 +73,16 @@
                     <i class="material-symbols-rounded">info</i>
                   </button>
                 </div>
+                @if ((transferProcess.optionalValue('edc', 'transferType') || '-') === 'HttpData-PULL') {
+                  <div class="tooltip no-animation ml-4" data-tip="Download">
+                    <button
+                      class="btn btn-soft btn-primary btn-circle btn-sm no-animation"
+                      (click)="download(transferProcess)"
+                    >
+                      <i class="material-symbols-rounded">download</i>
+                    </button>
+                  </div>
+                }
                 <div class="tooltip no-animation ml-4" data-tip="Deprovision">
                   <button
                     class="btn btn-soft btn-error btn-circle btn-sm no-animation"

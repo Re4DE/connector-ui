@@ -83,7 +83,7 @@ export class TransferPullDownloadComponent implements OnChanges, OnDestroy {
               if (event.status < 400) {
                 this.createDownloadLink(
                   event.body as Blob,
-                  this.filename ?? this.agreement.assetId.concat(this.fileExtension ?? ''),
+                  this.filename ?? (this.agreement ? this.agreement.assetId.concat(this.fileExtension ?? '') : ''),
                 );
                 this.progress = 100;
               }

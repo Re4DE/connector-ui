@@ -18,11 +18,12 @@ import { TransferProcess, TransferProcessStates } from '@think-it-labs/edc-conne
 import { DatePipe, NgClass } from '@angular/common';
 import { TransferHistoryDetailsComponent } from '../transfer-history-details/transfer-history-details.component';
 import { DeleteConfirmComponent, ModalAndAlertService } from '@eclipse-edc/dashboard-core';
+import { TransferPullDownloadComponent } from '../transfer-pull-download/transfer-pull-download.component';
 
 @Component({
   selector: 'lib-transfer-history-table',
   standalone: true,
-  imports: [NgClass, DatePipe],
+  imports: [NgClass, DatePipe, TransferPullDownloadComponent],
   templateUrl: './transfer-history-table.component.html',
 })
 export class TransferHistoryTableComponent implements OnChanges {
@@ -69,6 +70,12 @@ export class TransferHistoryTableComponent implements OnChanges {
     this.modalAndAlertService.openModal(TransferHistoryDetailsComponent, {
       transferProcess: transferProcess,
       stateType: this.stateType[transferProcess.id],
+    });
+  }
+
+  download(transferProcess: TransferProcess) {
+    this.modalAndAlertService.openModal(TransferPullDownloadComponent, {
+      transferId: transferProcess.id,
     });
   }
 

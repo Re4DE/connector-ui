@@ -48,7 +48,7 @@
         <input
           type="text"
           [(ngModel)]="filename"
-          [placeholder]="agreement.assetId.concat(fileExtension ?? '')"
+          [placeholder]="this.agreement ? this.agreement.assetId.concat(this.fileExtension ?? '') : ''"
           name="filename"
         />
       </label>
