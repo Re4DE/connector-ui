@@ -1,12 +1,12 @@
 [
   {
     "connectorName": "tester",
-    "managementUrl": "http://localhost:8080/api/management",
-    "defaultUrl": "http://localhost:8080/api",
-    "protocolUrl": "http://localhost:8080/api/v1/dsp",
-    "controlUrl": "http://localhost:8080/api/control",
+    "managementUrl": "http://localhost:9081/api/management",
+    "defaultUrl": "http://localhost:9080/api",
+    "protocolUrl": "http://localhost:9083/api/v1/dsp",
+    "controlUrl": "http://localhost:9082/api/control",
     "federatedCatalogEnabled": true,
-    "federatedCatalogUrl": "http://localhost:8080/api/catalog",
-    "did": ""
+    "federatedCatalogUrl": "http://localhost:9086/api/catalog",
+    "did": "did:web:localhost%3A10085:tester"
   }
 ]
