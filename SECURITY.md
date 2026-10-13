@@ -1,41 +1,117 @@
-<!-- BEGIN MICROSOFT SECURITY.MD V0.0.5 BLOCK -->
+# Security Policy
 
-## Security
+Thank you for your interest in the security of **Re4DE** – the reference system
+for data exchange in the energy sector (*Referenzsystem für den Datenaustausch
+im Energiesektor*).
 
-Microsoft takes the security of our software products and services seriously, which includes all source code repositories managed through our GitHub organizations, which include [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet), [Xamarin](https://github.com/xamarin), and [our GitHub organizations](https://opensource.microsoft.com/).
+## Project Context and Expectations
 
-If you believe you have found a security vulnerability in any Microsoft-owned repository that meets [Microsoft's definition of a security vulnerability](https://docs.microsoft.com/en-us/previous-versions/tn-archive/cc751383(v=technet.10)), please report it to us as described below.
+Re4DE is a **research-driven software project** developed by the Future Energy
+Lab of the German Energy Agency (dena) on behalf of the Federal Ministry for
+Digitalisation and State Modernisation (BMDS), with development support from
+the Fraunhofer Institute for Energy Economics and Energy System Technology
+(Fraunhofer IEE).
 
-## Reporting Security Issues
+The repositories are publicly available, but Re4DE is **not operated as a
+continuously managed open-source community**. The software is provided
+primarily for research and prototyping purposes. There is:
 
-**Please do not report security vulnerabilities through public GitHub issues.**
+- **No guarantee of production readiness**
+- **No guarantee of long-term maintenance**
+- **No guarantee of backward compatibility**
+- **No guaranteed response or fix times for security reports**
 
-Instead, please report them to the Microsoft Security Response Center (MSRC) at [https://msrc.microsoft.com/create-report](https://msrc.microsoft.com/create-report).
+Please take this into account when using, deploying, or building upon these
+components.
 
-If you prefer to submit without logging in, send email to [secure@microsoft.com](mailto:secure@microsoft.com).  If possible, encrypt your message with our PGP key; please download it from the [Microsoft Security Response Center PGP Key page](https://www.microsoft.com/en-us/msrc/pgp-key-msrc).
+## Supported Versions
 
-You should receive a response within 24 hours. If for some reason you do not, please follow up via email to ensure we received your original message. Additional information can be found at [microsoft.com/msrc](https://www.microsoft.com/msrc). 
+The project does not maintain a stable release line with long-term support.
+Security reviews are performed **selectively and at the maintainers'
+discretion**.
 
-Please include the requested information listed below (as much as you can provide) to help us better understand the nature and scope of the possible issue:
+| Version                  | Supported                           |
+|--------------------------|-------------------------------------|
+| latest `main` branch     | Selectively, on a best-effort basis |
+| older commits / releases | Not actively supported              |
 
-  * Type of issue (e.g. buffer overflow, SQL injection, cross-site scripting, etc.)
-  * Full paths of source file(s) related to the manifestation of the issue
-  * The location of the affected source code (tag/branch/commit or direct URL)
-  * Any special configuration required to reproduce the issue
-  * Step-by-step instructions to reproduce the issue
-  * Proof-of-concept or exploit code (if possible)
-  * Impact of the issue, including how an attacker might exploit the issue
+If you intend to use Re4DE components in production or safety-relevant
+environments, you are responsible for conducting your own security assessment
+and hardening.
 
-This information will help us triage your report more quickly.
+## Reporting a Vulnerability
 
-If you are reporting for a bug bounty, more complete reports can contribute to a higher bounty award. Please visit our [Microsoft Bug Bounty Program](https://microsoft.com/msrc/bounty) page for more details about our active programs.
+**Please do not report security vulnerabilities through public GitHub issues,
+discussions, or pull requests.**
 
-## Preferred Languages
+Instead, please report potential vulnerabilities **privately** through 
+**GitHub Private Vulnerability Reporting**.
+Open the *"Report a vulnerability"* option in the *Security* tab of the
+affected repository.
 
-We prefer all communications to be in English.
+When reporting, please include (where applicable):
 
-## Policy
+- The commit hash or version affected
+- A clear description of the issue and its potential impact
+- Steps to reproduce or a proof of concept
+- Any suggested mitigation
 
-Microsoft follows the principle of [Coordinated Vulnerability Disclosure](https://www.microsoft.com/en-us/msrc/cvd).
+### What to Expect
 
-<!-- END MICROSOFT SECURITY.MD BLOCK -->
+| Stage                     | Expectation                                                |
+|---------------------------|------------------------------------------------------------|
+| Acknowledgement of report | Best-effort; no guaranteed response time                   |
+| Assessment / triage       | Selective, at maintainers' discretion                      |
+| Fix and disclosure        | No guarantee of a fix, timeline, or coordinated disclosure |
+
+Given the research-oriented nature of the project, reports may be reviewed
+selectively. Fixes may – or may not – be provided, at the discretion of the
+maintainers.
+
+## Responsible Disclosure
+
+We ask researchers to:
+
+- Give maintainers a reasonable amount of time to assess the report before
+  any public disclosure.
+- Avoid actions that could harm users, systems, or data (no intrusive
+  scanning, exploitation, or data exfiltration on third-party deployments).
+- Interact only with systems you own or are explicitly authorized to test.
+
+## Scope
+
+The security policy applies to all public repositories of the Re4DE
+organization. It **does not** cover:
+
+- Third-party deployments or hosted instances operated by other parties
+- Forks of the repositories
+- Vulnerabilities in third-party dependencies, unless they are directly
+  exploitable through the Re4DE codebase
+  (such findings should also be reported upstream)
+
+## Secure Usage Recommendations
+
+Since Re4DE components deal with identity (German Smart Meter PKI, SSI) and
+dataspace connectivity:
+
+- Always deploy **Identity Hub, connector, and issuer together and fully
+  configured** – do not disable or bypass authentication/authorization
+  mechanisms.
+- Keep credentials, private keys, and Smart Meter PKI material **secure and
+  separate** from repository contents.
+- Review Helm charts and deployment configurations before use in any real
+  environment.
+- Regularly update dependencies; the maintainers do not guarantee up-to-date
+  dependency baselines.
+
+## Licensing Note
+
+By contributing security fixes to these repositories, you agree that your
+contributions will be licensed under the same license as the respective
+repository (Apache-2.0), in line with the project's
+[CONTRIBUTING.md](./CONTRIBUTING.md).
+
+---
+
+For general questions about Re4DE and dataspace solutions in the German energy
+sector, please contact the Future Energy Lab: `futureenergylab@dena.de`.
